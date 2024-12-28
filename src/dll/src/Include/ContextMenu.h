@@ -113,6 +113,7 @@ namespace Nilesoft
 
 		struct WND
 		{
+			template<bool animated>
 			struct window_t
 			{
 				HWND handle{};
@@ -137,12 +138,47 @@ namespace Nilesoft
 
 				bool create(long x, long y, long width, long height, HWND hOwner, uint32_t ex_style = 0)
 				{
+					if(animated) {
+						ex_style |= WS_EX_LAYERED;
+					}
+
+					this->x = x;
+					this->y = y;
+					this->width = width;
+					this->height = height;
 					handle = ::CreateWindowExW(WS_EX_TOPMOST | WS_EX_TOOLWINDOW | WS_EX_TRANSPARENT | WS_EX_NOACTIVATE | ex_style,
 											   WC_Shell_Window, nullptr, WS_POPUP,
 											   x, y,
 											   width, height,
 											   hOwner, nullptr, Path::GetCurrentModule(), nullptr);
+					if (animated) start_anim(false);
 					return handle;
+				}
+
+				float animation_pos = 0;
+				void start_anim(bool hide) {
+					std::thread([this, hide]() {
+						auto clock = std::chrono::high_resolution_clock();
+						auto start = clock.now();
+						while (animation_pos < 1)
+						{
+							auto now = clock.now();
+							auto elapsed = std::chrono::duration_cast<std::chrono::milliseconds>(now - start).count();
+							animation_pos = elapsed / 300.0f;
+							if (animation_pos >= 1)
+								animation_pos = 1;
+							auto curve_pos = sin(animation_pos * 3.14159265f / 2) - 0.0001;
+							if (hide)
+								::SetLayeredWindowAttributes(handle, 0, 256 - static_cast<int>(256 * curve_pos), LWA_ALPHA);
+							else
+								::SetLayeredWindowAttributes(handle, 0, static_cast<int>(256 * curve_pos), LWA_ALPHA);
+
+							SetWindowPos(handle, 0, 
+								x, y - (1 - curve_pos) * 15, 0, 0
+								, SWP_NOSIZE | SWP_NOOWNERZORDER | SWP_NOREDRAW | SWP_NOACTIVATE | SWP_SHOWWINDOW | SWP_NOZORDER);
+							std::this_thread::yield();
+						}
+					}).detach();
 				}
 
 				bool regoin(uint8_t radius = 0) const {
@@ -160,8 +196,8 @@ namespace Nilesoft
 				}
 			};
 
-			window_t layer;
-			window_t blurry;
+			window_t<false> layer;
+			window_t<true> blurry;
 
 			HWND handle{};
 			HDC hdc{};
