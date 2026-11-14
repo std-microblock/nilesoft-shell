@@ -5,6 +5,13 @@ on:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
+  workflow_dispatch:
+    inputs:
+      platform:
+        description: "Platform to build"
+        type: choice
+        options: [ all, x64, x86, arm64 ]
+        default: all
 
 permissions:
   contents: read
@@ -14,16 +21,17 @@ jobs:
 
     strategy:
       matrix:
-        # configuration: [debug, release]
+        # The solution only defines a release configuration.
         configuration: [release]
-        platform: [x64, x86, arm64]
+        # Manual runs can pick a single platform; everything else builds all of them.
+        platform: ${{ fromJSON((github.event_name == 'workflow_dispatch' && inputs.platform != 'all') && format('["{0}"]', inputs.platform) || '["x64","x86","arm64"]') }}
       fail-fast: false
 
     env:
       SOLUTION_FILE_PATH: src/Shell.sln
       BUILD_CONFIGURATION: ${{matrix.configuration}}
       BUILD_PLATFORM: ${{matrix.platform}}
-      BIN_PATH: D:\a\Shell\Shell\src\bin
+      BIN_PATH: ${{ github.workspace }}\src\bin
     runs-on: windows-latest
 
     steps:
@@ -33,11 +41,9 @@ jobs:
       uses: microsoft/setup-msbuild@v2
 
     - name: Restore NuGet packages
-      working-directory: ${{env.GITHUB_WORKSPACE}}
       run: nuget restore ${{env.SOLUTION_FILE_PATH}}
 
     - name: Build
-      working-directory: ${{env.GITHUB_WORKSPACE}}
       run: msbuild /m /p:Configuration=${{env.BUILD_CONFIGURATION}} /p:Platform=${{env.BUILD_PLATFORM}} ${{env.SOLUTION_FILE_PATH}}
 
     - name: Upload artifacts
@@ -50,7 +56,7 @@ jobs:
           !${{env.BIN_PATH}}\*.exp
           !${{env.BIN_PATH}}\*.wixpdb
           !${{env.BIN_PATH}}\ca.dll
-        if-no-files-found: warn
+        if-no-files-found: error
         retention-days: 0
         compression-level: 6
         overwrite: false
