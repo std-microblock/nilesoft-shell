@@ -91,9 +91,12 @@ namespace Nilesoft
 					Path::CurrentDirectory(application.Dirctory);
 					Parser parser;
 
-					load_mui();
+					// The MUI string table only depends on system resources, so it is
+					// built once and reused across config reloads.
+					if(MAP_MUID.empty())
+						load_mui();
 
-					cache->Packages.load();
+					// AppX packages are loaded lazily on first use (see PackagesCache::ensure_loaded).
 
 					if(!parser.Load())
 					{
@@ -151,7 +154,10 @@ namespace Nilesoft
 					cache = nullptr;
 				}
 
-				MAP_MUID.clear();
+				// Keep the MUI string table (it's expensive to rebuild and doesn't
+				// depend on the config), but drop references into the freed cache.
+				for(auto &it : MAP_MUID)
+					it.second.image = nullptr;
 			}
 			__except(EXCEPTION_EXECUTE_HANDLER)
 			{

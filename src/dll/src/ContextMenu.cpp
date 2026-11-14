@@ -3667,7 +3667,16 @@ namespace Nilesoft
 				string value = __font.name.to_string().trim().move();
 				if(!value.empty())
 				{
-					if(Font::Installed(value))
+					// EnumFontFamiliesEx is called on every menu popup otherwise; remember the last answer.
+					static string s_font_checked;
+					static bool s_font_installed = false;
+					if(!s_font_checked.equals(value))
+					{
+						s_font_installed = Font::Installed(value);
+						s_font_checked = value;
+					}
+
+					if(s_font_installed)
 					{
 						::memset(_theme.font.lfFaceName, 0, sizeof(_theme.font.lfFaceName));
 						//::StringCchCopyW(_theme.font.lfFaceName, value.length(), value.c_str());

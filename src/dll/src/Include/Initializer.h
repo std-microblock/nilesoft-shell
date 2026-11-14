@@ -651,23 +651,38 @@ namespace Nilesoft
 
 			inline static std::unordered_map<uint32_t, MUID> MAP_MUID;
 
+			// Secondary index: title hash -> MUID. Rebuilt lazily whenever MAP_MUID's size changes
+			// (entries are only ever added, and titles/hashes are fixed once load_mui() completes).
+			inline static std::unordered_map<uint32_t, MUID *> MAP_MUID_BY_HASH;
+			inline static size_t MAP_MUID_BY_HASH_SIZE = 0;
+
 			static MUID* get_muid(uint32_t hash)
 			{
-				for(auto &it : MAP_MUID)
+				if(auto it = MAP_MUID.find(hash); it != MAP_MUID.end())
+					return &it->second;
+
+				if(MAP_MUID_BY_HASH_SIZE != MAP_MUID.size())
 				{
-					if(it.first == hash or it.second.hash == hash)
-						return &it.second;
+					MAP_MUID_BY_HASH.clear();
+					MAP_MUID_BY_HASH.reserve(MAP_MUID.size());
+					for(auto &it : MAP_MUID)
+					{
+						// first match wins, mirroring the previous linear scan
+						if(it.second.hash)
+							MAP_MUID_BY_HASH.emplace(it.second.hash, &it.second);
+					}
+					MAP_MUID_BY_HASH_SIZE = MAP_MUID.size();
 				}
+
+				if(auto it = MAP_MUID_BY_HASH.find(hash); it != MAP_MUID_BY_HASH.end())
+					return it->second;
 				return nullptr;
 			}
 
 			static uint32_t get_hash(uint32_t id)
 			{
-				for(auto &it : MAP_MUID)
-				{
-					if(it.first == id)
-						return it.second.hash;
-				}
+				if(auto it = MAP_MUID.find(id); it != MAP_MUID.end())
+					return it->second.hash;
 				return 0;
 			}
 

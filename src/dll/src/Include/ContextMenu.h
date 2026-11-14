@@ -155,28 +155,33 @@ namespace Nilesoft
 					return handle;
 				}
 
-				float animation_pos = 0;
 				void start_anim(bool hide) {
-					std::thread([this, hide]() {
-						auto clock = std::chrono::high_resolution_clock();
-						auto start = clock.now();
-						while (animation_pos < 1)
+					// Capture by value: the window_t (and its owner WND) can be destroyed
+					// while the animation is still running.
+					std::thread([hwnd = handle, x = x, y = y, hide]() {
+						constexpr float duration_ms = 300.0f;
+						const auto start = std::chrono::steady_clock::now();
+						float pos = 0;
+						while(pos < 1 && ::IsWindow(hwnd))
 						{
-							auto now = clock.now();
-							auto elapsed = std::chrono::duration_cast<std::chrono::milliseconds>(now - start).count();
-							animation_pos = elapsed / 300.0f;
-							if (animation_pos >= 1)
-								animation_pos = 1;
-							auto curve_pos = sin(animation_pos * 3.14159265f / 2) - 0.0001;
-							if (hide)
-								::SetLayeredWindowAttributes(handle, 0, 256 - static_cast<int>(256 * curve_pos), LWA_ALPHA);
-							else
-								::SetLayeredWindowAttributes(handle, 0, static_cast<int>(256 * curve_pos), LWA_ALPHA);
+							auto elapsed = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::steady_clock::now() - start).count();
+							pos = elapsed / duration_ms;
+							if(pos >= 1)
+								pos = 1;
 
-							SetWindowPos(handle, 0, 
-								x, y - (1 - curve_pos) * 15, 0, 0
-								, SWP_NOSIZE | SWP_NOOWNERZORDER | SWP_NOREDRAW | SWP_NOACTIVATE | SWP_SHOWWINDOW | SWP_NOZORDER);
-							std::this_thread::yield();
+							auto curve_pos = std::sin(pos * 3.14159265f / 2) - 0.0001f;
+							auto alpha = static_cast<BYTE>(255 * (hide ? 1 - curve_pos : curve_pos));
+							::SetLayeredWindowAttributes(hwnd, 0, alpha, LWA_ALPHA);
+
+							// SWP_ASYNCWINDOWPOS: don't block on (or flood) the menu's UI thread,
+							// which owns the window and is busy building/painting the menu.
+							::SetWindowPos(hwnd, nullptr,
+										   x, static_cast<int>(y - (1 - curve_pos) * 15), 0, 0,
+										   SWP_NOSIZE | SWP_NOOWNERZORDER | SWP_NOREDRAW | SWP_NOACTIVATE | SWP_SHOWWINDOW | SWP_NOZORDER | SWP_ASYNCWINDOWPOS);
+
+							// ~60 fps instead of spinning a core with yield().
+							if(pos < 1)
+								std::this_thread::sleep_for(std::chrono::milliseconds(16));
 						}
 					}).detach();
 				}

@@ -202,6 +202,7 @@ namespace Nilesoft
 			case IDENT_UWP:
 			{
 				auto packages = &cache->Packages;
+				packages->ensure_loaded();
 				if(Id[1] == IDENT_LIST)
 				{
 					auto array = new Object[packages->list.size() + 1];

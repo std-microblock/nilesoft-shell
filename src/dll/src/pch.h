@@ -29,6 +29,8 @@
 #include <vssym32.h>
 
 #include <thread>
+#include <chrono>
+#include <cmath>
 #include <mutex>
 //#include <future>
 #include <functional>
