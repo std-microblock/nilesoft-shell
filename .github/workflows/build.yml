@@ -10,7 +10,7 @@ on:
       platform:
         description: "Platform to build"
         type: choice
-        options: [ all, x64, x86, arm64 ]
+        options: [ all, x64, x86 ]
         default: all
 
 permissions:
@@ -24,7 +24,7 @@ jobs:
         # The solution only defines a release configuration.
         configuration: [release]
         # Manual runs can pick a single platform; everything else builds all of them.
-        platform: ${{ fromJSON((github.event_name == 'workflow_dispatch' && inputs.platform != 'all') && format('["{0}"]', inputs.platform) || '["x64","x86","arm64"]') }}
+        platform: ${{ fromJSON((github.event_name == 'workflow_dispatch' && inputs.platform != 'all') && format('["{0}"]', inputs.platform) || '["x64","x86"]') }}
       fail-fast: false
 
     env:

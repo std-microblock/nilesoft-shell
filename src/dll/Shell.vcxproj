@@ -9,10 +9,6 @@
       <Configuration>release</Configuration>
       <Platform>Win32</Platform>
     </ProjectConfiguration>
-    <ProjectConfiguration Include="release|ARM64">
-      <Configuration>release</Configuration>
-      <Platform>ARM64</Platform>
-    </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
@@ -125,11 +121,6 @@
     <Xdcmake>
       <SuppressStartupBanner Condition="'$(Configuration)|$(Platform)'=='release|x64'">false</SuppressStartupBanner>
     </Xdcmake>
-  </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Platform)'=='ARM64'">
-    <Link>
-      <MinimumRequiredVersion>10.0</MinimumRequiredVersion>
-    </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
     <None Include="packages.config" />

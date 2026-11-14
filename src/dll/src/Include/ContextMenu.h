@@ -113,7 +113,6 @@ namespace Nilesoft
 
 		struct WND
 		{
-			template<bool animated>
 			struct window_t
 			{
 				HWND handle{};
@@ -138,52 +137,12 @@ namespace Nilesoft
 
 				bool create(long x, long y, long width, long height, HWND hOwner, uint32_t ex_style = 0)
 				{
-					if(animated) {
-						ex_style |= WS_EX_LAYERED;
-					}
-
-					this->x = x;
-					this->y = y;
-					this->width = width;
-					this->height = height;
 					handle = ::CreateWindowExW(WS_EX_TOPMOST | WS_EX_TOOLWINDOW | WS_EX_TRANSPARENT | WS_EX_NOACTIVATE | ex_style,
 											   WC_Shell_Window, nullptr, WS_POPUP,
 											   x, y,
 											   width, height,
 											   hOwner, nullptr, Path::GetCurrentModule(), nullptr);
-					if (animated) start_anim(false);
 					return handle;
-				}
-
-				void start_anim(bool hide) {
-					// Capture by value: the window_t (and its owner WND) can be destroyed
-					// while the animation is still running.
-					std::thread([hwnd = handle, x = x, y = y, hide]() {
-						constexpr float duration_ms = 300.0f;
-						const auto start = std::chrono::steady_clock::now();
-						float pos = 0;
-						while(pos < 1 && ::IsWindow(hwnd))
-						{
-							auto elapsed = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::steady_clock::now() - start).count();
-							pos = elapsed / duration_ms;
-							if(pos >= 1)
-								pos = 1;
-
-							auto curve_pos = std::sin(pos * 3.14159265f / 2) - 0.0001f;
-							auto alpha = static_cast<BYTE>(255 * (hide ? 1 - curve_pos : curve_pos));
-							::SetLayeredWindowAttributes(hwnd, 0, alpha, LWA_ALPHA);
-
-							// SWP_ASYNCWINDOWPOS: don't block on (or flood) the menu's UI thread,
-							// which owns the window and is busy building/painting the menu.
-							::SetWindowPos(hwnd, nullptr,
-										   x, static_cast<int>(y - (1 - curve_pos) * 15), 0, 0,
-										   SWP_NOSIZE | SWP_NOOWNERZORDER | SWP_NOREDRAW | SWP_NOACTIVATE | SWP_SHOWWINDOW | SWP_NOZORDER | SWP_ASYNCWINDOWPOS);
-
-							// ~60 fps instead of spinning a core with yield().
-							if(pos < 1)
-								std::this_thread::sleep_for(std::chrono::milliseconds(16));
-						}
-					}).detach();
 				}
 
 				bool regoin(uint8_t radius = 0) const {
@@ -201,8 +160,8 @@ namespace Nilesoft
 				}
 			};
 
-			window_t<false> layer;
-			window_t<true> blurry;
+			window_t layer;
+			window_t blurry;
 
 			HWND handle{};
 			HDC hdc{};
