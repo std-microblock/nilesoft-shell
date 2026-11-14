@@ -9,6 +9,7 @@
 #include <Windowsx.h>
 #include <strsafe.h>
 #include <thread>
+#include <chrono>
 #include <sys/timeb.h>
 #include <time.h>
 #include <ctime>
