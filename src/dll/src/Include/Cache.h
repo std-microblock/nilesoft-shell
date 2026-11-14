@@ -35,6 +35,28 @@ namespace Nilesoft
 			PackagesCache() = default;
 			~PackagesCache() = default;
 
+			// Enumerating the AppX repository (and resolving every package's
+			// indirect display-name string) is expensive, so it is deferred
+			// until a package.* / appx.* / uwp.* function is first evaluated.
+			bool ensure_loaded()
+			{
+				if(!_loaded)
+				{
+					_loaded = true;
+					load();
+				}
+				return !list.empty();
+			}
+
+			void clear()
+			{
+				list.clear();
+				_loaded = false;
+			}
+
+		private:
+			bool _loaded = false;
+
 			bool load()
 			{
 				HKEY hkeyPackages = nullptr;
@@ -96,6 +118,7 @@ namespace Nilesoft
 				return true;
 			}
 
+		public:
 			string get_value(const wchar_t *name, HKEY hkeyPackage)
 			{
 				if(hkeyPackage)
@@ -295,10 +318,8 @@ namespace Nilesoft
 
 			Font *at(uint32_t id) const
 			{
-				for(auto &font : fonts)
-				{
-					if(id == font.first) return font.second;
-				}
+				if(auto it = fonts.find(id); it != fonts.end())
+					return it->second;
 				return nullptr;
 			}
 
@@ -457,7 +478,7 @@ namespace Nilesoft
 				variables.runtime.clear(true);
 				variables.loc.clear(true);
 
-				Packages.list.clear();
+				Packages.clear();
 			}
 
 			void reload(uint32_t dpi = 96)
