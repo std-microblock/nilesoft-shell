@@ -116,7 +116,7 @@ bool isPositiveInteger(const std::string& s)
 }
 */
 
-namespace Nilesoft
+namespace Morpthis
 {
 	namespace Text
 	{

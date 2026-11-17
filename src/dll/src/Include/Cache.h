@@ -3,7 +3,7 @@
 #include "Include\Theme.h"
 #include <Resource.h>
 
-namespace Nilesoft
+namespace Morpthis
 {
 	namespace Shell
 	{
@@ -248,6 +248,7 @@ namespace Nilesoft
 			HANDLE _handle{};
 
 		public:
+			// Family name embedded in Resource/Shell.ttf (FONTICON); must match the font file, so it is not rebranded.
 			static constexpr auto  Default = L"Nilesoft.Shell";
 			static constexpr auto  SegoeFluentIcons = L"Segoe Fluent Icons";
 			static constexpr auto  SegoeMDL2Assets = L"Segoe MDL2 Assets";

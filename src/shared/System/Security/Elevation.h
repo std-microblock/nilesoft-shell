@@ -3,7 +3,7 @@
 #ifndef ELEVATION_H
 #define ELEVATION_H
 
-namespace Nilesoft
+namespace Morpthis
 {
 	namespace Security
 	{

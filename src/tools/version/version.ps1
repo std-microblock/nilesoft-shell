@@ -81,7 +81,7 @@ try
 	$___Build__	= 19	# auto increase
 	$___Revis__	= 0	# auto increase
 	
-	$AppCompany		= "Nilesoft"
+	$AppCompany		= "Morpthis"
 	$AppName		= "Shell"
 	$AppFileName	= "shell"
 	$AppFileExt		= ".dll"
@@ -112,12 +112,12 @@ try
 	#$Build | Set-Content "build.txt"
 	$Version = "$Major.$Minor.$Build.$Revis"
 
-	Debug-Output("Nilesoft Shell version number: $Version")
+	Debug-Output("Morpthis Shell version number: $Version")
 
 	update "Resource.h" "..\..\shared\Resource.h";
 	#update "Shell.rc" "..\..\shared\Resource\Shell.rc";
 	update "manifest.xml" "..\..\shared\Resource\manifest.xml";
-	update "Shell.def" "..\..\dll\src\Shell.def";
+	update "morpthis.def" "..\..\dll\src\morpthis.def";
 	update "var.wxi" "..\..\setup\wix\var.wxi";
 	
 	$content = (Get-Content $ScriptPath)

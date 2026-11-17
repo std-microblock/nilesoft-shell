@@ -11,7 +11,7 @@
 
 //#include <filesystem>
 
-namespace Nilesoft
+namespace Morpthis
 {
 	namespace Shell
 	{
@@ -2663,7 +2663,7 @@ namespace Nilesoft
 					if(argc == 3)
 						path = eval_arg(2).to_string();
 					else
-						path = Path::Combine(Path::TempDirectory(), L"shell-selections.txt").move();
+						path = Path::Combine(Path::TempDirectory(), L"morpthis-selections.txt").move();
 
 					if(path.empty())
 					{

@@ -2,7 +2,7 @@
 /*#include <Windows.h>
 #include <new>
 */
-namespace Nilesoft
+namespace Morpthis
 {
 	class MemoryManager
 	{

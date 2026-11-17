@@ -2,11 +2,11 @@
 
 #include <functional>
 
-namespace Nilesoft
+namespace Morpthis
 {
 	namespace UI
 	{
-		constexpr auto WC_Window = L"Nilesoft.Shell.Window";
+		constexpr auto WC_Window = L"Morpthis.Shell.Window";
 
 		class Control
 		{

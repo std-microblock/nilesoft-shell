@@ -43,7 +43,7 @@ struct MenuItemData
 */
 
 
-namespace Nilesoft
+namespace Morpthis
 {
 	namespace Shell
 	{

@@ -2,7 +2,7 @@
 #include <psapi.h>
 #include <tlhelp32.h>
 
-namespace Nilesoft
+namespace Morpthis
 {
 	namespace Diagnostics
 	{

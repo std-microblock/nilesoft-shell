@@ -372,7 +372,7 @@ namespace System
 		}*/
 	}
 }
-namespace Nilesoft
+namespace Morpthis
 {
 	enum class PrimitiveType
 	{
@@ -2215,8 +2215,8 @@ inline static auto PostMSG(HWND hWnd, uint32_t msg, auto wparam, auto lparam)
 #include "System\Text\TString.h"
 #include "System\Text\Text.h"
 
-//static const auto typeid_string = typeid(Nilesoft::Text::string).hash_code();
-//static const auto typeid_const_string = typeid(const Nilesoft::Text::string).hash_code();
+//static const auto typeid_string = typeid(Morpthis::Text::string).hash_code();
+//static const auto typeid_const_string = typeid(const Morpthis::Text::string).hash_code();
 //static const auto typeid_wstring = typeid(std::wstring).hash_code();
 //static const auto typeid_const_wstring = typeid(const std::wstring).hash_code();
 

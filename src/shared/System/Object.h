@@ -3,7 +3,7 @@
 #include "System\Text\string.h"
 #include "System\Drawing\Color.h"
 
-namespace Nilesoft
+namespace Morpthis
 {
 	using namespace Text;
 	/*template<class T>
@@ -226,8 +226,8 @@ namespace Nilesoft
 					return val;
 					/*if(Value.Inner == PrimitiveType::Color)
 						return val;
-					return Nilesoft::Drawing::Color::Swap(val);
-					Nilesoft::Drawing::Color color(val);
+					return Morpthis::Drawing::Color::Swap(val);
+					Morpthis::Drawing::Color color(val);
 					if(Value.Inner == PrimitiveType::Color)
 						return color;// RGB(GetBValue(clr), GetGValue(clr), GetRValue(clr));
 					else

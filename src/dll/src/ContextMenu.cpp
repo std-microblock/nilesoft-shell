@@ -4,7 +4,7 @@
 #include "Include/ContextMenu.h"
 #include "Include/stb_image_write.h"
 
-using namespace Nilesoft::Diagnostics;
+using namespace Morpthis::Diagnostics;
 #include <mutex>
 
 extern Logger &_log;
@@ -138,7 +138,7 @@ auto ver = &Windows::Version::Instance();
 
 #pragma endregion
 
-namespace Nilesoft
+namespace Morpthis
 {
 	//std::mutex mtx; // mutex for critical section
 	namespace Shell

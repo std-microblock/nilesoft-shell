@@ -3,7 +3,7 @@
 #include <Library/plutosvg.h>
 #include <Library/PlutoVGWrap.h>
 
-namespace Nilesoft
+namespace Morpthis
 {
 	namespace Shell
 	{

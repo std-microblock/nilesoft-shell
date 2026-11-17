@@ -1,10 +1,10 @@
 ﻿
 <?include var.wxi ?>
 
-<?define UpgradeCode = '{7BCA6512-254B-456F-8F08-AAD7508BEE00}' ?>
+<?define UpgradeCode = '{161C8E44-8500-43F7-B637-F6196621AC51}' ?>
 <?define Platform = '$(sys.BUILDARCH)' ?>
 <?define Name = 'Shell' ?>
-<?define Manufacturer = 'Nilesoft' ?>
+<?define Manufacturer = 'Morpthis' ?>
 <?define FullName = '$(var.Manufacturer) $(var.Name)' ?>
 <?define Info = 'Powerful context menu manager for Windows File Explorer' ?>
 <?define bin = '..\..\bin' ?>
@@ -53,8 +53,8 @@
 		<Property Id='MSIRESTARTMANAGERCONTROL' Value='Disable' />
 		<Property Id='DefaultUIFont' Value='WixUI_Font_Normal' />
 		<Property Id='ErrorDialog' Value='ErrorDlg' />
-		<Property Id='ARPURLINFOABOUT' Value='https://nilesoft.org/' />
-		<Property Id='ARPHELPLINK' Value='https://nilesoft.org/docs/' />
+		<Property Id='ARPURLINFOABOUT' Value='https://github.com/cheesyserg/morpthis-shell' />
+		<Property Id='ARPHELPLINK' Value='https://github.com/cheesyserg/morpthis-shell/tree/main/docs' />
 		<Property Id='ARPNOMODIFY' Value='1' Secure='yes' />
 		<Property Id='ARPNOREPAIR' Value='1' Secure='yes' />
 		<Property Id='BURNMSIMODIFY' Value='0' Secure='yes' />
@@ -64,7 +64,7 @@
 		<StandardDirectory Id='$(var.PlatformProgramFilesFolder)'>
 			<Directory Id='INSTALLFOLDER' Name='$(var.FullName)'>
 				<Directory Id='IMPORTS' Name='imports'>
-					<Component Id='IMPORTS' Guid='{FF987BEA-6195-4C05-8523-00936A1BD0E2}' NeverOverwrite='yes'>
+					<Component Id='IMPORTS' Guid='{F9E6F2EE-CAD0-4708-82C6-64B33AD186C8}' NeverOverwrite='yes'>
 						<File Id='theme.nss' Source='$(var.bin)\imports\theme.nss' />
 						<File Id='goto.nss' KeyPath='yes' Source='$(var.bin)\imports\goto.nss' />
 						<File Id='modify.nss' Source='$(var.bin)\imports\modify.nss' />
@@ -75,37 +75,37 @@
 						<File Id='terminal.nss' Source='$(var.bin)\imports\terminal.nss' />
 					</Component>
 				<Directory Id='LANG' Name='lang'>
-					<Component Id='LANG' Guid='{FF987BEA-6195-4C05-8523-00936A1BD092}' NeverOverwrite='yes'>
+					<Component Id='LANG' Guid='{DF506879-4C12-42FB-9B13-C4C596A3E3DB}' NeverOverwrite='yes'>
 						<File Id='en.nss' Source='$(var.bin)\imports\lang\en.nss' />
 						<File Id='ar.nss' Source='$(var.bin)\imports\lang\ar.nss' />
 					</Component>
 				</Directory>
 				</Directory>
-					<Component Id='APPLICATION' Guid='{ED9EFE4B-E83D-42BB-8938-F72B13A2FAD2}'>
+					<Component Id='APPLICATION' Guid='{8408259C-738A-490E-9AA8-1E2229C2328E}'>
 					<CreateFolder Directory='INSTALLFOLDER' />
-					<File Id='shell.exe' Checksum='yes' Name='shell.exe' KeyPath='yes' Source='$(var.bin)\shell.exe' />
-					<File Id='shell.dll' Checksum='yes' Name='shell.dll' Source='$(var.bin)\shell.dll' />
+					<File Id='morpthis.exe' Checksum='yes' Name='morpthis.exe' KeyPath='yes' Source='$(var.bin)\morpthis.exe' />
+					<File Id='morpthis.dll' Checksum='yes' Name='morpthis.dll' Source='$(var.bin)\morpthis.dll' />
 					<File Id='readme.txt' Name='readme.txt' Source='$(var.bin)\readme.txt' />
 					<File Id='license.txt' Name='LICENSE' Source='$(var.bin)\license.txt' />
 				</Component>
-				<Component Id='CONFIG' Guid='{BEC55C6A-30C7-4E1F-B64D-8636AB379E31}' NeverOverwrite='yes'>
-					<File Id='shell.nss' Name='shell.nss' KeyPath='yes' Source='$(var.bin)\shell.nss' />
+				<Component Id='CONFIG' Guid='{798FB94E-1648-44B6-AD3F-E02CA5AA4DF3}' NeverOverwrite='yes'>
+					<File Id='morpthis.nss' Name='morpthis.nss' KeyPath='yes' Source='$(var.bin)\morpthis.nss' />
 				</Component>
-				<Component Id='CLEANUP' Guid='{838501CD-485B-4587-9195-6CFB416202B9}' KeyPath='yes'>
+				<Component Id='CLEANUP' Guid='{821DCCDB-B049-4646-A298-336550858956}' KeyPath='yes'>
 					<RemoveFile Id='PurgeAppFiles' Name='*.*' On='uninstall' Directory='INSTALLFOLDER' />
 					<RemoveFolder Id='PurgeAppFolder' On='uninstall' Directory='INSTALLFOLDER' />
 				</Component>
-				<Component Id='DisplayIcon' Guid='{69292D86-8518-4C68-867C-192767154C54}'>
+				<Component Id='DisplayIcon' Guid='{194AFD33-85D8-4371-98B6-CA73E3EBBB78}'>
 					<RegistryValue Id='DisplayIcon' Key='SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\[ProductCode]'
-						Name='DisplayIcon' Root='HKLM' Type='string' Value='[!shell.exe]' KeyPath='yes'/>
+						Name='DisplayIcon' Root='HKLM' Type='string' Value='[!morpthis.exe]' KeyPath='yes'/>
 				</Component>
 			</Directory>
 		</StandardDirectory>
 		<StandardDirectory Id='ProgramMenuFolder'>
-			<Component Id='StartMenuShortcut' Guid='{41AFAF39-4B3F-4D1E-800E-DD3231C004C9}'>
+			<Component Id='StartMenuShortcut' Guid='{346F8B54-6236-4075-8179-0D04045EEDE2}'>
 				<Shortcut Id='StartMenuShortcut' Directory='ProgramMenuFolder' Description='$(var.Info)'
-					WorkingDirectory='INSTALLFOLDER' Name='$(var.FullName)' Target='[!shell.exe]' />
-				<RegistryValue Key='Software\Nilesoft\Shell' Root='HKCU' Type='string' Value='' KeyPath='yes' />
+					WorkingDirectory='INSTALLFOLDER' Name='$(var.FullName)' Target='[!morpthis.exe]' />
+				<RegistryValue Key='Software\Morpthis\Shell' Root='HKCU' Type='string' Value='' KeyPath='yes' />
 			</Component>
 		</StandardDirectory>
 <!--

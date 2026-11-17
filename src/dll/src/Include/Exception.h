@@ -5,7 +5,7 @@
 #include<exception>
 #include <cstdarg>
 */
-namespace Nilesoft
+namespace Morpthis
 {
 	class Exception : public std::exception
 	{

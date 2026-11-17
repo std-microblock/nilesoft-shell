@@ -3,7 +3,7 @@
 //#include "DC.h"
 //#include "Bitmap.h"
 
-namespace Nilesoft
+namespace Morpthis
 {
 	namespace Drawing
 	{

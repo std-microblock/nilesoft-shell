@@ -1,10 +1,10 @@
 #pragma once
 
-namespace Nilesoft
+namespace Morpthis
 {
 	namespace Shell
 	{
-		constexpr auto NILESOFTSHELL_SIGN = 0x1989D5CDU;
+		constexpr auto MORPTHISSHELL_SIGN = 0x1989D5CDU;
 
 		struct IProperty
 		{
@@ -243,7 +243,7 @@ namespace Nilesoft
 		class NativeMenu
 		{
 		public:
-			uint32_t sign = NILESOFTSHELL_SIGN + 1;
+			uint32_t sign = MORPTHISSHELL_SIGN + 1;
 
 			static constexpr auto TYPE_NONE = 0;
 			static constexpr auto TYPE_MAIN = 1;

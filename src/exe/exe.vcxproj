@@ -17,7 +17,7 @@
     </Keyword>
     <ProjectGuid>{FFFD0DDB-48FB-4681-A3B6-8E787FA98C98}</ProjectGuid>
     <RootNamespace>Shell</RootNamespace>
-    <TargetName>shell</TargetName>
+    <TargetName>morpthis</TargetName>
     <ProjectName>exe</ProjectName>
     <TargetExt>.exe</TargetExt>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>

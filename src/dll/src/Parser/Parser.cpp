@@ -6,7 +6,7 @@
 #include "RegistryConfig.h"
 
 // Windows State (Hidden | Normal | Minimized | Maximized)
-namespace Nilesoft
+namespace Morpthis
 {
 	namespace Shell
 	{

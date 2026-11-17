@@ -10,12 +10,12 @@
 #define IS_INTRESOURCE(_r) (((ULONG_PTR)(_r) >> 16) == 0)
 #endif
 
-namespace Nilesoft
+namespace Morpthis
 {
-	static const GUID IID_Shell						= { 0xbae3934b, 0x8a6a, 0x4bfb, { 0x81, 0xbd, 0x3f, 0xc5, 0x99, 0xa1, 0xba, 0xf0 } };
-	static const GUID IID_ContextMenu				= { 0xbae3934b, 0x8a6a, 0x4bfb, { 0x81, 0xbd, 0x3f, 0xc5, 0x99, 0xa1, 0xba, 0xf1 } };
-	static const GUID IID_IconOverlay				= { 0xbae3934b, 0x8a6a, 0x4bfb, { 0x81, 0xbd, 0x3f, 0xc5, 0x99, 0xa1, 0xba, 0xf2 } };
-	static const GUID IID_FolderExtensions			= { 0xbae3934b, 0x8a6a, 0x4bfb, { 0x81, 0xbd, 0x3f, 0xc5, 0x99, 0xa1, 0xba, 0xf3 } };
+	static const GUID IID_Shell						= { 0xf60410da, 0x6ef5, 0x439d, { 0xb8, 0x24, 0xb4, 0x7c, 0xff, 0xb3, 0xa6, 0xf0 } };
+	static const GUID IID_ContextMenu				= { 0xf60410da, 0x6ef5, 0x439d, { 0xb8, 0x24, 0xb4, 0x7c, 0xff, 0xb3, 0xa6, 0xf1 } };
+	static const GUID IID_IconOverlay				= { 0xf60410da, 0x6ef5, 0x439d, { 0xb8, 0x24, 0xb4, 0x7c, 0xff, 0xb3, 0xa6, 0xf2 } };
+	static const GUID IID_FolderExtensions			= { 0xf60410da, 0x6ef5, 0x439d, { 0xb8, 0x24, 0xb4, 0x7c, 0xff, 0xb3, 0xa6, 0xf3 } };
 
 	// Windows.UI.FileExplorer.ContextMenu {86ca1aa0-34aa-4e8b-a509-50c905bae2a2}
 	static const GUID IID_FileExplorerContextMenu	= { 0x86ca1aa0, 0x34aa, 0x4e8b, { 0xa5, 0x09, 0x50, 0xc9, 0x05, 0xba, 0xe2, 0xa2 } };
@@ -25,16 +25,16 @@ namespace Nilesoft
 #define L(x)      L ## x
 
 // GUIDs for COM-objects
-	constexpr auto CLS_Shell  = L"{BAE3934B-8A6A-4BFB-81BD-3FC599A1BAF0}";
-#define CLS_ContextMenu			L"{BAE3934B-8A6A-4BFB-81BD-3FC599A1BAF1}"
-#define CLS_IconOverlay			L"{BAE3934B-8A6A-4BFB-81BD-3FC599A1BAF2}"
-#define CLS_FolderExtensions	L"{BAE3934B-8A6A-4BFB-81BD-3FC599A1BAF3}"
+	constexpr auto CLS_Shell  = L"{F60410DA-6EF5-439D-B824-B47CFFB3A6F0}";
+#define CLS_ContextMenu			L"{F60410DA-6EF5-439D-B824-B47CFFB3A6F1}"
+#define CLS_IconOverlay			L"{F60410DA-6EF5-439D-B824-B47CFFB3A6F2}"
+#define CLS_FolderExtensions	L"{F60410DA-6EF5-439D-B824-B47CFFB3A6F3}"
 #define CLS_FileExplorerContextMenu	"{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}"
 
 	constexpr auto app_namea = "Shell";
 	constexpr auto app_name = L"Shell";
 	
-	constexpr auto app_full_name = L"Nilesoft Shell";
+	constexpr auto app_full_name = L"Morpthis Shell";
 	constexpr auto str_trim = L" \t\r\n\v\f\"'";
 
 	// Macro to get a random integer with a specified range 

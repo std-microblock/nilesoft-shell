@@ -4,7 +4,7 @@ by: github.com/moudey
 */
 
 xxx="한국어 번역 - 비너스걸"
-// shell.nss
+// morpthis.nss
 pin_unpin="고정/고정 해제"
 
 // develop.nss

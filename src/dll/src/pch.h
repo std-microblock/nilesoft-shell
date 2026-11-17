@@ -75,19 +75,19 @@ using Dictionary = std::unordered_map<TKey, TValue>;
 #define maximum_path 32767
 #include <System.h>
 
-using namespace ::Nilesoft;
-using namespace ::Nilesoft::Collections;
-using namespace ::Nilesoft::Text;
-using namespace ::Nilesoft::IO;
-using namespace ::Nilesoft::Drawing;
-using namespace ::Nilesoft::Windows::Forms;
+using namespace ::Morpthis;
+using namespace ::Morpthis::Collections;
+using namespace ::Morpthis::Text;
+using namespace ::Morpthis::IO;
+using namespace ::Morpthis::Drawing;
+using namespace ::Morpthis::Windows::Forms;
 
 #include <Resource.h>
 // TODO: reference additional headers your program requires here
 #include <Globals.h>
 
 
-using namespace Nilesoft;
+using namespace Morpthis;
 
 #include "Parser\IdentHash.h"
 #include <FileSystemObjects.h>
@@ -123,7 +123,7 @@ using namespace Nilesoft;
 //default 4
 #define TABSIZE		1
 
-//using namespace Nilesoft::Registry;
+//using namespace Morpthis::Registry;
 
 
 //#define ISOLATION_AWARE_ENABLED 1

@@ -1,6 +1,6 @@
 #pragma once
 
-namespace Nilesoft
+namespace Morpthis
 {
 
 #define HKCR	HKEY_CLASSES_ROOT

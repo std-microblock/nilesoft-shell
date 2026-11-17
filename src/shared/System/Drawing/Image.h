@@ -10,7 +10,7 @@
 #pragma warning(disable:4458)
 //#pragma warning(disable:4189)//local variable is initialized but not referenced
 
-namespace Nilesoft
+namespace Morpthis
 {
 	namespace Drawing
 	{

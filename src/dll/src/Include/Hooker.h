@@ -171,7 +171,7 @@ inline BOOL VnPatchDelayIAT(HMODULE hMod, PSTR libName, PSTR funcName, uintptr_t
 }
 #endif
 */ 
-namespace Nilesoft::Shell
+namespace Morpthis::Shell
 {
 	struct IATHook
 	{

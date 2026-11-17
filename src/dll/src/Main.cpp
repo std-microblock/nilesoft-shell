@@ -3,7 +3,7 @@
 #include "Library/detours.h"
 #include "RegistryConfig.h"
 #include <UIAutomation.h>
-using namespace Nilesoft::Shell;
+using namespace Morpthis::Shell;
 using namespace Diagnostics;
 
 //MS also offers EV Code Certificates, which enable immediate acceptance by SmartScreeen of Windows Defender
@@ -953,7 +953,7 @@ BOOL APIENTRY DllMain(HINSTANCE hInstance, DWORD dwReason, LPVOID)
 #endif
 			_loader.init();
 
-			if(!_loader.explorer && !_loader.path.ends_with(L"\\shell.exe"))
+			if(!_loader.explorer && !_loader.path.ends_with(L"\\morpthis.exe"))
 			{
 				
 				//	if(_loader.path.ends_with(L"\\firefox.exe") || _loader.path.ends_with(L"\\devenv.exe"))

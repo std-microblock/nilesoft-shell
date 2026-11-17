@@ -57,15 +57,15 @@ reg.get('HKCU\Control Panel\Desktop')</code></pre>
 	<p>Allows creating a subkey with the value name and value data</p>
 	<p>Syntax</p>
 	<p>Create Subkey</p>
-	<pre><code>reg.set('HKCU\Software\Nilesoft\Shell')</pre></code>
+	<pre><code>reg.set('HKCU\Software\Morpthis\Shell')</pre></code>
 	<p>Create Subkey with value and set value data type.</p>
-	<pre><code>reg.set('HKCU\Software\Nilesoft\Shell', "test-int", 1, reg.dword)
-reg.set('HKCU\Software\Nilesoft\Shell', "test-str", 1, reg.sz)
-reg.set('HKCU\Software\Nilesoft\Shell', "test-str", 'some string', reg.sz)</code></pre>
+	<pre><code>reg.set('HKCU\Software\Morpthis\Shell', "test-int", 1, reg.dword)
+reg.set('HKCU\Software\Morpthis\Shell', "test-str", 1, reg.sz)
+reg.set('HKCU\Software\Morpthis\Shell', "test-str", 'some string', reg.sz)</code></pre>
 
 	<p>Set value data with auto type detection.</p><pre><code>
-reg.set('HKCU\Software\Nilesoft\Shell', 'test-auto-int', 1)
-reg.set('HKCU\Software\Nilesoft\Shell', 'test-auto-str', 'some string')</code></pre>
+reg.set('HKCU\Software\Morpthis\Shell', 'test-auto-int', 1)
+reg.set('HKCU\Software\Morpthis\Shell', 'test-auto-str', 'some string')</code></pre>
 </section>
 
 <section id="reg.delete" class="my-5">
@@ -73,20 +73,20 @@ reg.set('HKCU\Software\Nilesoft\Shell', 'test-auto-str', 'some string')</code></
 	<p>Allows deleting a subkey or deleting a value</p>
 	<p>Syntax</p>
 	<p>Delete value name.</p>
-	<pre><code>reg.delete('HKCU\Software\Nilesoft\Shell', 'test-auto')</pre></code>
+	<pre><code>reg.delete('HKCU\Software\Morpthis\Shell', 'test-auto')</pre></code>
 	<p>Delete subkey.</p>
-	<pre><code>reg.delete('HKCU\Software\Nilesoft\Shell')</code></pre>
+	<pre><code>reg.delete('HKCU\Software\Morpthis\Shell')</code></pre>
 </section>
 
 <section id="reg.keys" class="my-5">
 	<h5>reg.keys</h5>
 	<p>Returns all subkey names</p>
 	<p>Syntax</p>
-	<pre><code>reg.keys('HKCU\Software\Nilesoft\Shell')</pre></code>
+	<pre><code>reg.keys('HKCU\Software\Morpthis\Shell')</pre></code>
 </section>
 <section id="reg.values" class="my-5">
 	<h5>reg.values</h5>
 	<p>Returns all value names</p>
 	<p>Syntax</p>
-	<pre><code>reg.values('HKCU\Software\Nilesoft\Shell')</pre></code>
+	<pre><code>reg.values('HKCU\Software\Morpthis\Shell')</pre></code>
 </section>

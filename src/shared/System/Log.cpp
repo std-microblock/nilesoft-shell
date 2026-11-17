@@ -5,7 +5,7 @@
 #include <Resource.h>
 //#include <mutex>
 
-namespace Nilesoft
+namespace Morpthis
 {
 	using namespace Text;
 

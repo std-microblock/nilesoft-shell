@@ -1,7 +1,7 @@
 ﻿#pragma once
 #include "System/Diagnostics/Process.h"
 
-namespace Nilesoft
+namespace Morpthis
 {
 	namespace Windows
 	{
@@ -378,7 +378,7 @@ namespace Nilesoft
 					return res > 0;
 				}
 
-				for(auto &process : Nilesoft::Diagnostics::Process::EnumInfo())
+				for(auto &process : Morpthis::Diagnostics::Process::EnumInfo())
 				{
 					if(process.th32ProcessID)
 					{

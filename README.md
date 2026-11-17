@@ -1,21 +1,18 @@
-[![Ceasefire Now](https://badge.techforpalestine.org/default)](https://techforpalestine.org/learn-more)
-
 [![Build](../../actions/workflows/build.yml/badge.svg)](../../actions/workflows/build.yml)
-[![Nightly](https://img.shields.io/badge/Nightly-nightly.link-purple)](https://nightly.link/moudey/Shell/workflows/build/main)
 
-# [Shell](https://nilesoft.org)
-Powerful manager for Windows File Explorer context menu.
+# Morpthis Shell
+Powerful manager for the Windows File Explorer context menu.
 <br>
 
 <p align="center">
- <img src="https://www.nilesoft.org/images/logo-256.png">
+ <img src="/packages/assets/logo-256.png">
  <br>
  <br>
 </p>
 
 ## Details
 <p>
-Shell is a context menu extender that lets you handpick the items to integrate into the Windows File Explorer context menu, create custom commands to access all your favorite web pages, files, and folders, and launch any application directly from the context menu.<br>
+Morpthis Shell is a context menu extender that lets you handpick the items to integrate into the Windows File Explorer context menu, create custom commands to access all your favorite web pages, files, and folders, and launch any application directly from the context menu.<br>
 It also provides you a convenient solution to modify or remove any context menu item added by the system or third-party software.
 </p>
 
@@ -43,13 +40,25 @@ Requirements
 
 Documentation
 ------------------
-Browse the [online documentation here.](https://nilesoft.org/docs)
+Browse the [documentation](docs/). The configuration file is `morpthis.nss`, next to `morpthis.exe`.
 
 
 Download
 ------------------
-Download the latest version:  
-https://nilesoft.org/download
+Builds are produced by GitHub Actions: open the [Build workflow](../../actions/workflows/build.yml),
+pick the latest successful run and download `morpthis-shell-x64` (or `morpthis-shell-x86`).
+
+Register from an elevated command prompt in the extracted folder:
+
+```
+morpthis -register -restart
+```
+
+and unregister with `morpthis -unregister -restart`.
+
+> Morpthis Shell uses its own COM IDs, file names and registry keys, so it can be installed
+> side by side with Nilesoft Shell. Builds from before the rebrand (`shell.exe` / `shell.dll`)
+> must be unregistered with their own `shell -unregister` before switching.
 
 Screenshots
 ------------------
@@ -64,10 +73,7 @@ Screenshots
 <br>
 </p>
 
-Donate
+Credits
 ------------------
-If you really love Shell and would like to see it continue to improve.
-
-[![Paypal](https://img.shields.io/badge/Donate-PayPal-blue.svg)](https://www.paypal.me/nilesoft)
-[![BuyMeACoffee](https://img.shields.io/badge/Donate-BuyMeACoffee-yellow.svg)](https://www.buymeacoffee.com/moudey)
-
+Morpthis Shell is a fork of [Nilesoft Shell](https://github.com/moudey/Shell) by Nilesoft,
+released under the MIT License. See [LICENSE](LICENSE).

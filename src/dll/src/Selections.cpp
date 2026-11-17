@@ -10,7 +10,7 @@
 //// The taskbar on the second screen
 //hWnd_TaskBar_SecondScreen = FindWindowA("Shell_SecondaryTrayWnd", NULL);
 
-namespace Nilesoft
+namespace Morpthis
 {
 	namespace Shell
 	{

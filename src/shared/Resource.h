@@ -9,7 +9,7 @@
 #define IDI_LOGO				1100;
 #define IDI_IMAGES 				1101;
 
-namespace Nilesoft
+namespace Morpthis
 {
 
 #define STRINGIFY(x)			L#x
@@ -24,21 +24,21 @@ namespace Nilesoft
 //#define APP_IS_CANARY			1
 //#define APP_CANARY				L"Canary"
 
-#define APP_COMPANY				L"Nilesoft"
-#define APP_COMPANYLTD			APP_COMPANY L" Ltd"
+#define APP_COMPANY				L"Morpthis"
+#define APP_COMPANYLTD			APP_COMPANY L" Shell contributors"
 #define APP_NAMEA				"Shell"
 #define APP_NAME				L"Shell"
 #define APP_FULLNAME			APP_COMPANY L" " APP_NAME
 //#define APP_FULLNAME_VERSION	APP_FULLNAME L" (debug)"
-#define APP_FILENAME_TITLE		L"shell"
+#define APP_FILENAME_TITLE		L"morpthis"
 
 #define	APP_PRODUCT_VERSION		L"1.9"
 #define	APP_VERSION				L"1.9.19"
 //#define APP_VERSION_FULL		L"1.9 build 19"
 
-constexpr auto APP_EMAIL		= L"support@nilesoft.org";
-constexpr auto APP_WEBSITE		= L"www.nilesoft.org";
-constexpr auto APP_WEBSITELINK	= L"https://nilesoft.org";
+constexpr auto APP_EMAIL		= L"https://github.com/cheesyserg/morpthis-shell/issues";
+constexpr auto APP_WEBSITE		= L"https://github.com/cheesyserg/morpthis-shell";
+constexpr auto APP_WEBSITELINK	= L"https://github.com/cheesyserg/morpthis-shell";
 
 #ifdef _WINDLL
 	#define APP_FILENAME		APP_FILENAME_TITLE L".dll"

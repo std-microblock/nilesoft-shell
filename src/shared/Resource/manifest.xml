@@ -3,10 +3,10 @@
 	<assemblyIdentity
 		version="1.9.19.0"
 		processorArchitecture="*"
-		name="Nilesoft.Shell"
+		name="Morpthis.Shell"
 		type="win32"
 	/>
-	<description>Nilesoft Shell</description>
+	<description>Morpthis Shell</description>
 	<dependency>
 		<dependentAssembly>
 			<assemblyIdentity

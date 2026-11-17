@@ -38,7 +38,7 @@
 //	return RGB(R, G, B);
 //}
 
-namespace Nilesoft
+namespace Morpthis
 {
 	namespace Drawing
 	{

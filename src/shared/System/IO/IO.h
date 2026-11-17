@@ -2,7 +2,7 @@
 
 #include <VersionHelpers.h>
 
-namespace Nilesoft
+namespace Morpthis
 {
 	namespace IO
 	{

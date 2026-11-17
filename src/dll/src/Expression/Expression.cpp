@@ -1,6 +1,6 @@
 #include <pch.h>
 
-namespace Nilesoft
+namespace Morpthis
 {
 	namespace Shell
 	{

@@ -1,6 +1,6 @@
 #pragma once
 
-namespace Nilesoft
+namespace Morpthis
 {
 #include <windows.h>
 	class CommandLine

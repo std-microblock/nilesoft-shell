@@ -1,6 +1,6 @@
 #pragma once
 
-namespace Nilesoft
+namespace Morpthis
 {
 	struct REGOP
 	{
@@ -16,7 +16,7 @@ namespace Nilesoft
 
 	class RegistryConfig
 	{
-#define	APP_SIG						L"\u0020@nilesoft.shell"
+#define	APP_SIG						L"\u0020@morpthis.shell"
 #define	APP_COMP_NAME				APP_COMPANY L"." APP_NAME
 #define APP_KEY						L"SOFTWARE\\" APP_COMPANY L"\\" APP_NAME
 

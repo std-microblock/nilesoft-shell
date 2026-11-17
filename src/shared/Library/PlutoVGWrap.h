@@ -3,7 +3,7 @@
 
 #include "plutosvg.h"
 
-namespace Nilesoft
+namespace Morpthis
 {
 	namespace Shell
 	{
@@ -323,7 +323,7 @@ namespace Nilesoft
 				return bitmap;
 			}
 			
-			HBITMAP tobitmap(Nilesoft::Drawing::Color const &color) const
+			HBITMAP tobitmap(Morpthis::Drawing::Color const &color) const
 			{
 				HBITMAP bitmap{};
 				uint32_t *dst_bits{};

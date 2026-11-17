@@ -3,7 +3,7 @@ Arabic
 by: github.com/moudey
 */
 
-// shell.nss
+// morpthis.nss
 pin_unpin="Pin/Unpin"
 
 // develop.nss

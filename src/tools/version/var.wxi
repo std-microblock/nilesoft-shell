@@ -1,4 +1,4 @@
 ﻿<Include xmlns='http://wixtoolset.org/schemas/v4/wxs'>
 <?define Version = '$MAJOR$.$MINOR$.$BUILD$' ?>
-<?define ProductCode = '{7BCA6512-254B-456F-8F08-AAD7508BEE77}' ?>
+<?define ProductCode = '{AF059E11-1FB1-4114-9858-3F5C0F2326FE}' ?>
 </Include>

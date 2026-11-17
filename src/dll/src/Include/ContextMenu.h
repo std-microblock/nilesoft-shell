@@ -1,9 +1,9 @@
 #pragma once
 
-//constexpr auto WC_MENU_Layer = L"Nilesoft.Shell.Window.Layers";
-//constexpr auto WC_MENU_Layers = L"Nilesoft.Shell.Window.Border";
-//constexpr auto WC_MENU_Layers = L"Nilesoft.Shell.Window.Shadow";
-constexpr auto WC_Shell_Window = L"Nilesoft.Shell.Window";
+//constexpr auto WC_MENU_Layer = L"Morpthis.Shell.Window.Layers";
+//constexpr auto WC_MENU_Layers = L"Morpthis.Shell.Window.Border";
+//constexpr auto WC_MENU_Layers = L"Morpthis.Shell.Window.Shadow";
+constexpr auto WC_Shell_Window = L"Morpthis.Shell.Window";
 constexpr auto def_COMSPEC = L"ComSpec";
 constexpr auto def_EXPLORER = L"explorer.exe";
 constexpr auto def_POWERSHELL = L"powershell.exe";
@@ -68,13 +68,13 @@ LRESULT WINAPI LayerProc(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM lParam);
 //EXTERN_C LRESULT __stdcall TaskBarSubclassProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam, UINT_PTR uIdSubclass, DWORD_PTR dwRefData);
 
 //#include <stack>
-namespace Nilesoft
+namespace Morpthis
 {
 	namespace Shell
 	{
-		constexpr auto NILESOFTSHELL = 0x1E34270FU;
-		static const uintptr_t CONTEXTMENUSUBCLASS = NILESOFTSHELL;
-		static const uintptr_t CONTEXTMENUSUBCLASS_TASKBAR = NILESOFTSHELL + 1;
+		constexpr auto MORPTHISSHELL = 0x1E34270FU;
+		static const uintptr_t CONTEXTMENUSUBCLASS = MORPTHISSHELL;
+		static const uintptr_t CONTEXTMENUSUBCLASS_TASKBAR = MORPTHISSHELL + 1;
 
 		struct menuitem_t
 		{

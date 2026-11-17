@@ -8,9 +8,6 @@
 <ul>
 	<li><a href="#installer">Installer</a></li>
 	<li><a href="#portable">Portable</a></li>
-	<li><a href="#winget">Windows Package Manager</a></li>
-	<li><a href="#scoop">Scoop</a></li>
-	<li><a href="#chocolatey">Chocolatey</a></li>
 </ul><br>
 <p>Please also note the following reference sections:</p>
 <ul>
@@ -22,15 +19,15 @@
 	<h5>Installer version</h5>
 	<div id="installer-install">
 		<h5>Install</h5>
-		<p><a href="/download">Download</a> the installation file (Installer/Portable),
-			run <code>setup.exe</code>, follow the installation steps, and agree to restart Windows File Explorer.</p>
-		<p>The program will be installed to <code>C:\Program Files\Nilesoft Shell\</code>, unless you have chosen
+		<p>Download the latest build from the <a href="https://github.com/cheesyserg/morpthis-shell/actions">GitHub Actions</a> page (artifact <code>morpthis-shell-x64</code> or <code>morpthis-shell-x86</code>),
+			run the installer, follow the installation steps, and agree to restart Windows File Explorer.</p>
+		<p>The program will be installed to <code>C:\Program Files\Morpthis Shell\</code>, unless you have chosen
 			a different installation path during the installation steps.</p>
 	</div>
 	<hr>
 	<div id="installer-uninstall">
 		<h5>Uninstall</h5>
-		<p>Inside the Shell program folder (<code>C:\Program Files\Nilesoft Shell\</code> by default), run the <code>unst000.exe</code>
+		<p>Inside the Shell program folder (<code>C:\Program Files\Morpthis Shell\</code> by default), run the <code>unst000.exe</code>
 			or <code>unstall.exe</code> file, then follow the steps, and then agree to restart Windows File Explorer.
 		</p>
 	</div>
@@ -40,16 +37,12 @@
 	<h5>Portable version</h5>
 	<div id="portable-install">
 		<h5>Install</h5>
-		<p><a href="/download">Download</a> the
-			installation file (Installer/Portable),
-			run <code>setup.exe</code>,
-			click Next, chose the folder you want the program to be extracted
-			to, <strong>Check the option Portable Mode</strong>, and click
-			Extract.</p>
+		<p>Download the latest build from the <a href="https://github.com/cheesyserg/morpthis-shell/actions">GitHub Actions</a> page (artifact <code>morpthis-shell-x64</code> or <code>morpthis-shell-x86</code>)
+			and extract it to the folder you want to run the program from.</p>
 		<p>Open an <strong>elevated command prompt</strong> (or use <a href="https://github.com/gerardog/gsudo">gsudo</a>), change to the directory you have extracted the program to, and run</p>
 		<div class="console">
 			<div class="console-title">Administrator: Command Prompt</div>
-			<div class="console-body">shell -register -restart</div>
+			<div class="console-body">morpthis -register -restart</div>
 		</div>
 		<p>For further details, see the chapter <a href="#cli">Command-Line Help</a> below.</p>
 	</div>
@@ -59,7 +52,7 @@
 		<p>Open an <strong>elevated command prompt</strong> (or use <a href="https://github.com/gerardog/gsudo">gsudo</a>), change to the directory you have extracted the program to, and run</p>
 		<div class="console">
 			<div class="console-title">Administrator: Command Prompt</div>
-			<div class="console-body">shell -unregister -restart</div>
+			<div class="console-body">morpthis -unregister -restart</div>
 		</div>
 		<br>
 		<div class="notification is-info mt-5">
@@ -71,113 +64,9 @@
 	</div>
 </div>
 <br/>
-<div id="winget">
-	<h5>Windows Package Manager</h5>
-	<p>Windows Package Manager is available from Windows 10 version 1809.</p>
-	<div id="winget-install">
-		<h5>Install</h5>
-		<p>Open a command prompt, and run</p>
-		<div class="console">
-			<div class="console-title">COMMAND PROMPT</div>
-			<div class="console-body">winget install Nilesoft.Shell</div>
-		</div>
-		<p>The program will be installed to <code>C:\Program Files\Nilesoft Shell\</code>.</p>
-	</div>
-	<hr>
-	<div id="winget-uninstall">
-		<h5>Uninstall</h5>
-		<p>Open a command prompt, and run</p>
-		<div class="console">
-			<div class="console-title">COMMAND PROMPT</div>
-			<div class="console-body">winget uninstall Nilesoft.Shell</div>
-		</div>
-	</div>
-</div>
-<br/>
-<div id="scoop">
-	<h5>Scoop</h5>
-	<p>Scoop can be installed following the instructions at <a href="https://scoop.sh/">scoop.sh</a>.</p>
-	<div id="scoop-install">
-		<h5>Install</h5>
-		<p>Open a command prompt, and run</p>
-		<div class="console">
-			<div class="console-title">COMMAND PROMPT</div>
-			<div class="console-body">scoop install nilesoft-shell</div>
-		</div>
-		<p>The program will be installed to <code>%USERPROFILE%\scoop\apps\nilesoft-shell\current\</code>.</p>
-		<div class="notification is-info mt-5">
-			<i>Tip:</i> If you get the error <code>Couldn't find manifest for 'nilesoft-shell'</code>, please run first
-			<div class="console">
-				<div class="console-title">COMMAND PROMPT</div>
-				<div class="console-body">scoop bucket add extras</div>
-			</div>
-		</div>
-		<p>Open an <strong>elevated command prompt</strong> (or use <a href="https://github.com/gerardog/gsudo">gsudo</a>), and run</p>
-		<div class="console">
-			<div class="console-title">Administrator: Command Prompt</div>
-			<div class="console-body">shell -register -restart</div>
-		</div>
-		<p>For further details see the chapter <a href="#cli">Command-Line Help</a> below.</p>
-	</div>
-	<hr>
-	<div id="scoop-uninstall">
-		<h5>Uninstall</h5>
-		<p>Open an <strong>elevated command prompt</strong> (or use <a href="https://github.com/gerardog/gsudo">gsudo</a>), and run</p>
-		<div class="console">
-			<div class="console-title">Administrator: Command Prompt</div>
-			<div class="console-body">shell -unregister -restart</div>
-		</div>
-		<p>Then run</p>
-		<div class="console">
-			<div class="console-title">Administrator: Command Prompt</div>
-			<div class="console-body">scoop uninstall nilesoft-shell</div>
-		</div>
-	</div>
-</div>
-<br/>
-<div id="chocolatey">
-	<h5>Chocolatey</h5>
-	<p>Chocolatey can be installed following the instructions at <a href="https://chocolatey.org/install#individual">chocolatey.org</a>.</p>
-	<div id="chocolatey-install">
-		<h5>Install</h5>
-		<div class="notification is-info mt-5">
-			<i>Notice:</i> Until the package has been moderated, you need to add the specific version string to the
-			installer, adding e.g.<br/>
-			<div class="console">
-				<div class="console-title">COMMAND PROMPT</div>
-				<div class="console-body">
-					choco install nilesoft.shell --version=1.8.1
-				</div>
-			</div>
-			Please find the latest published version at <a href="https://community.chocolatey.org/packages/nilesoft.shell#versionhistory">
-			Chocolatey's Version History</a> and use the latest version number (replacing <code>1.8.1</code>).
-		</div>
-		<br>
-		<p>Open an <strong>elevated command prompt</strong> (or use <a href="https://github.com/gerardog/gsudo">gsudo</a>), and run</p>
-		<div class="console">
-			<div class="console-title">COMMAND PROMPT</div>
-			<div class="console-body">
-				choco install nilesoft.shell
-			</div>
-		</div>
-		<p>The program will be installed to <code>C:\Program Files\Nilesoft Shell\</code>.</p>
-	</div>
-	<hr>
-	<div id="chocolatey-uninstall">
-		<h5>Uninstall</h5>
-		<p>Open an <strong>elevated command prompt</strong> (or use <a href="https://github.com/gerardog/gsudo">gsudo</a>), and run</p>
-		<div class="console">
-			<div class="console-title">COMMAND PROMPT</div>
-			<div class="console-body">choco uninstall nilesoft.shell</div>
-		</div>
-	</div>
-</div>
-
-<br/>
-
 <div id="cli">
 	<h5 id="cli-help">Command-Line Help</h5><br>
-	<code>shell -[options]</code>
+	<code>morpthis -[options]</code>
 	<br><br>
 	<h5 id="cli-options">Options</h5>
 	<table class="table table-sm">
@@ -211,8 +100,8 @@
 <div id="keys">
 	<h5>Use the following keys to enable/disable</h5>
 	<p>These keys are used when you press <kbd>right-click</kbd> or press <kbd>Shift</kbd>+<kbd>F10</kbd> keys</p>
-	<kbd>CTRL</kbd> To enable and reload the configuration file <code>shell.nss</code><br/>
+	<kbd>CTRL</kbd> To enable and reload the configuration file <code>morpthis.nss</code><br/>
 	<kbd>WIN</kbd> To make priority to the modern context menu for Windows 11<br>
 	<kbd>CTRL</kbd>+<kbd>WIN</kbd> To disable Shell and Enable Classic Context Menu<br>
-	<kbd>RIGHT-CLICK</kbd>+<kbd>LEFT-CLICK</kbd> To reload the configuration file <code>shell.nss</code><br/>
+	<kbd>RIGHT-CLICK</kbd>+<kbd>LEFT-CLICK</kbd> To reload the configuration file <code>morpthis.nss</code><br/>
 </div>

@@ -4,7 +4,7 @@ by: github.com/moudey
 */
 
 xxx="Welcome in english"
-// shell.nss
+// morpthis.nss
 pin_unpin="Pin/Unpin"
 
 // develop.nss

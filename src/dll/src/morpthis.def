@@ -1,4 +1,4 @@
-LIBRARY	"shell.dll"
+LIBRARY	"morpthis.dll"
 VERSION 1.9
 EXPORTS
 	DllCanUnloadNow			PRIVATE

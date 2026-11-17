@@ -1,7 +1,7 @@
 #pragma once
 #include <dwmapi.h>
 
-namespace Nilesoft
+namespace Morpthis
 {
 	namespace Drawing
 	{

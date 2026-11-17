@@ -1,4 +1,4 @@
-LIBRARY	"shell.dll"
+LIBRARY	"morpthis.dll"
 VERSION $MAJOR$.$MINOR$
 EXPORTS
 	DllCanUnloadNow			PRIVATE

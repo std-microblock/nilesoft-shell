@@ -33,7 +33,7 @@
     <None Include="ReadMe.txt">
       <Filter>Others Files</Filter>
     </None>
-    <None Include="src\Shell.def">
+    <None Include="src\morpthis.def">
       <Filter>Others Files</Filter>
     </None>
     <None Include="packages.config" />

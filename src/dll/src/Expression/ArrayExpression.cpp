@@ -3,7 +3,7 @@
 #include "Expression\Constants.h"
 #include "Expression\Variable.h"
 
-namespace Nilesoft
+namespace Morpthis
 {
 	namespace Shell
 	{

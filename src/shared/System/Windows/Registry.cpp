@@ -10,7 +10,7 @@
 #include "Registry.h"
 */
 
-namespace Nilesoft
+namespace Morpthis
 {
 	using namespace Text;
 	/*

@@ -2,7 +2,7 @@
 
 #include <cwctype>
 
-namespace Nilesoft
+namespace Morpthis
 {
 	namespace Text
 	{

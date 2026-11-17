@@ -3,7 +3,7 @@
 #include "Include\Hooker.h"
 #include "Include/ContextMenu.h"
 
-namespace Nilesoft
+namespace Morpthis
 {
 	namespace Shell
 	{
@@ -27,9 +27,9 @@ namespace Nilesoft
 				application.Root = Path::GetRoot(application.Path);
 				application.Dirctory = Path::Parent(application.Path).move();
 
-				// Nilesoft Shell Script (NSS)
-				// Nilesoft Shell Object (NSO)
-				application.ConfigPortable = Path::Join(application.Dirctory, L"\\shell.nss").move();
+				// Morpthis Shell Script (NSS)
+				// Morpthis Shell Object (NSO)
+				application.ConfigPortable = Path::Join(application.Dirctory, L"\\morpthis.nss").move();
 				application.Config = application.ConfigPortable;
 
 				auto len = application.Path.length();

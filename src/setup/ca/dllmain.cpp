@@ -94,9 +94,9 @@ bool streq(const std::wstring &s1, const wchar_t *s2)
 
 #undef ShellExecute
 
-constexpr auto FILEEXE = L"shell.exe";
-constexpr auto FILEDLL = L"shell.dll";
-constexpr auto FILEOLD = L"shell.old";
+constexpr auto FILEEXE = L"morpthis.exe";
+constexpr auto FILEDLL = L"morpthis.dll";
+constexpr auto FILEOLD = L"morpthis.old";
 
 constexpr auto upgrading = L"UPGRADINGPRODUCTCODE";
 
@@ -223,7 +223,7 @@ static bool InstallFolder(MSIHANDLE hInstall, std::wstring& install_folder, bool
 		{
 			install_folder.resize(MAX_PATH);
 			auto rc = ::RegGetValueW(HKEY_CLASSES_ROOT,
-									 L"CLSID\\{BAE3934B-8A6A-4BFB-81BD-3FC599A1BAF1}\\InprocServer32",
+									 L"CLSID\\{F60410DA-6EF5-439D-B824-B47CFFB3A6F1}\\InprocServer32",
 									 nullptr, RRF_RT_REG_SZ | KEY_WOW64_64KEY, nullptr, static_cast<void *>(install_folder.data()), &length);
 			if(rc == ERROR_SUCCESS)
 			{

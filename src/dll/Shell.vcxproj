@@ -18,7 +18,7 @@
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
     <RootNamespace>Shell</RootNamespace>
     <ProjectName>dll</ProjectName>
-    <TargetName>shell</TargetName>
+    <TargetName>morpthis</TargetName>
     <TargetExt>.dll</TargetExt>
     <GenerateManifest>false</GenerateManifest>
     <OutDir>$(SolutionDir)bin\</OutDir>
@@ -125,7 +125,7 @@
   <ItemGroup>
     <None Include="packages.config" />
     <None Include="readme.txt" />
-    <None Include="src\Shell.def" />
+    <None Include="src\morpthis.def" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Expression\ArrayExpression.h" />

@@ -28,11 +28,11 @@
 	#pragma comment(lib, "plutosvg-x86.lib")
 #endif
 
-using namespace Nilesoft;
-using namespace Nilesoft::Windows::Forms;
-using namespace Nilesoft::Shell;
+using namespace Morpthis;
+using namespace Morpthis::Windows::Forms;
+using namespace Morpthis::Shell;
 
-constexpr const wchar_t dll_name[] = L"shell.dll";
+constexpr const wchar_t dll_name[] = L"morpthis.dll";
 
 BOOL CALLBACK WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam);
 
@@ -414,7 +414,7 @@ bool Register(REGOP reg, HWND hwnd = nullptr)
 	
 	if(!dll)
 	{
-		auto ernf = L"shell.dll not found.";
+		auto ernf = L"morpthis.dll not found.";
 		_log->error(ernf);
 		if(!reg.SILENT)
 			MessageBox::Show(ernf, APP_FULLNAME, MessageBoxIcon::Warning);
@@ -481,7 +481,7 @@ public:
 void check()
 {
 	Console c;
-	c.writel(L"\n\nNilesoft Shell\n");
+	c.writel(L"\n\nMorpthis Shell\n");
 
 	_log->info(L"BEGIN CHECK");
 
@@ -494,7 +494,7 @@ void check()
 
 	auto clsid_shex = [=](const string &s)->string
 	{
-		return (s + L"\\shellex\\ContextMenuHandlers\\nilesoft.shell").move();
+		return (s + L"\\shellex\\ContextMenuHandlers\\morpthis.shell").move();
 	};
 
 	auto exists_key = [=](HKEY k, const string &name)
@@ -673,7 +673,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR,
 						{
 							_hfont_icon = ::CreateFontW(-dpi(20), 0, 0, 0, FW_NORMAL, 0, 0, 0,
 														SYMBOL_CHARSET, OUT_DEFAULT_PRECIS, CLIP_DEFAULT_PRECIS,
-														ANTIALIASED_QUALITY, DEFAULT_PITCH, L"Nilesoft.Shell");
+														ANTIALIASED_QUALITY, DEFAULT_PITCH, L"Nilesoft.Shell"); // icon font family embedded in Shell.ttf
 						}
 						UnlockResource(lpFileView);
 					}
@@ -715,14 +715,14 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR,
         auto btn_web = new UI::Button(L"\uE11F", { tl, tt, btn_h, btn_h }, ID_WEB, main_window, BS_OWNERDRAW, _hfont_icon,  L"Website Ctrl+W");
        
         tl += btn_h + offset_2;
-        auto btn_email = new UI::Button(L"\uE115", { tl, tt, btn_h, btn_h }, ID_EMAIL, main_window, BS_OWNERDRAW, _hfont_icon, L"Email Ctrl+E");
+        auto btn_email = new UI::Button(L"\uE115", { tl, tt, btn_h, btn_h }, ID_EMAIL, main_window, BS_OWNERDRAW, _hfont_icon, L"Report an issue Ctrl+E");
        
         tl += btn_h + offset_2;
         auto btn_bug = new UI::Button(L"\uE22B", { tl, tt, btn_h, btn_h }, ID_GITHUB, main_window, BS_OWNERDRAW, _hfont_icon, L"Github Ctrl+G");
 
 		//tl += (dpi(50) - btn_h) + btn_h + dpi(12);
 		tl += btn_h + offset_2;
-        auto btn_donate = new UI::Button(L"\uE1A8", { tl, tt, btn_h, btn_h }, ID_DONATE, main_window, BS_OWNERDRAW, _hfont_icon, L"Donate Ctrl+D");
+        auto btn_donate = new UI::Button(L"\uE1A8", { tl, tt, btn_h, btn_h }, ID_DONATE, main_window, BS_OWNERDRAW, _hfont_icon, L"Downloads Ctrl+D");
 
 
         main_window->SetColor({ btn_reg, btn_unreg,btn_restart,btn_donate,btn_web,btn_email,btn_bug }, 
@@ -855,7 +855,7 @@ HFONT FontSize(HFONT hFont, int size, int weight = 0, byte quality= ANTIALIASED_
 }
 
 bool hover = false;
-using namespace Nilesoft::Drawing;
+using namespace Morpthis::Drawing;
 
 void DrawPng(HDC hdc, HBITMAP hbitmap, int x, int y, int size = 16, int sx = 0, int sy = 0, int alpha = 255)
 {
@@ -1052,13 +1052,13 @@ LRESULT CALLBACK WindowProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPara
 					Open(hWnd, APP_WEBSITE);
                     break;
                 case ID_DONATE:
-					Open(hWnd, L"https://nilesoft.org/donate");
+					Open(hWnd, L"https://github.com/cheesyserg/morpthis-shell/actions");
                     break;
                 case ID_EMAIL:
-					Open(hWnd, L"mailto:support@nilesoft.org");
+					Open(hWnd, L"https://github.com/cheesyserg/morpthis-shell/issues");
                     break;
                 case ID_GITHUB:
-					Open(hWnd, L"https://github.com/moudey/shell");
+					Open(hWnd, L"https://github.com/cheesyserg/morpthis-shell");
                     break;
 				case ID_RESTART:
 					Windows::Explorer::Restart();
@@ -1143,7 +1143,7 @@ BOOL CALLBACK WndProc(HWND hwnd, UINT message, WPARAM wParam, [[maybe_unused]] L
 			//WCHAR szTitle[100];
 			// LoadString(g_hInstance, IDS_APP_TITLE, szTitle, ARRAYSIZE(szTitle));
             auto usage = L"Command-Line Help\r\n\r\n"
-                //L"shell.exe [-[r][u]] [-i] [-s] [-re]\n\n"
+                //L"morpthis.exe [-[r][u]] [-i] [-s] [-re]\n\n"
                 L"-register\t\tRegistering.\r\n"
                 L"-unregister\tUnregistering.\r\n"
                 L"-treat\t\tDisable Windows 11 context menu.\r\n"
@@ -1153,7 +1153,7 @@ BOOL CALLBACK WndProc(HWND hwnd, UINT message, WPARAM wParam, [[maybe_unused]] L
                 //L"\t\tN=[admin | system | trustedinsaller]\r\n\r\n"
                 L"-?\t\tDispay this help message.\r\n\r\n"
                 L"Examples:\r\nshell.exe -register -treat\r\n"
-              //  L"shell.exe -runas:admin -cmd:'cmd.exe' -args:\"/K echo Hello world!\"\r\n"
+              //  L"morpthis.exe -runas:admin -cmd:'cmd.exe' -args:\"/K echo Hello world!\"\r\n"
                 ;
             ::SetDlgItemTextW(hwnd, IDC_CMDLINE_TEXT, usage);
            // SendDlgItemMessage(hwnd, IDC_CMDLINE_TEXT, EM_SETSEL, -1, -1);
