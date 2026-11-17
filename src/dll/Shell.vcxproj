@@ -109,7 +109,7 @@
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
-      <OptimizeReferences>false</OptimizeReferences>
+      <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
       <IgnoreEmbeddedIDL>true</IgnoreEmbeddedIDL>
